@@ -40,7 +40,7 @@ btTentativa.addEventListener("click", ()=>{
             console.log("Letra no lugar errado!")
         } else if((tentativa.value).toLowerCase() == letras[i]){
             console.log("Acertou!")
-            tentativa.ariaDisabled
+            tentativa.disabled = true;
 
         }else{
             console.log("Errou!")
