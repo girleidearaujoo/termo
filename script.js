@@ -41,6 +41,7 @@ btTentativa.addEventListener("click", ()=>{
     }else{
         if(letras.includes(tentativa.value) && !((tentativa.value).toLowerCase() == letras[i])){
             console.log("Letra no lugar errado!")
+            tentativa.id = 'present'
         } else if((tentativa.value).toLowerCase() == letras[i]){
             console.log("Acertou!")
             tentativa.disabled = true;

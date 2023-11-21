@@ -32,14 +32,14 @@ body {
     transform: scale(1.1);
 }
 
-.correct {
-    background-color: #3498db;
+#correct {
+    background-color: #34db60;
 }
 
-.present {
-    background-color: #2ecc71;
+#present {
+    background-color: rgb(179, 143, 43);
 }
 
-.absent {
+#absent {
     background-color: #444c56;
 }
