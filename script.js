@@ -19,14 +19,28 @@
 //     }
 // }
 let htmlPalavra = document.getElementById("palavra");
-let btTentativa = document.getElementById("btTentativa")
-let wordArray = ["teste"];
+let btTentativa = document.getElementById("btTentativa");
+var wordArray = ["teste"];
+var letras = wordArray[0].split('');
 
 function testar(){
-    let letras = wordArray[0].split('');
+ 
     console.log(letras);
 
-    for (const letra of letras) {
-        desenhar(letra, htmlPalavra)
-    }
+        desenhar(letras, htmlPalavra)
+    
 }
+
+btTentativa.addEventListener("click", ()=>{
+    let tentativa 
+    for (let i = 0; i < letras.length; i++) {
+        tentativa = document.getElementById("inptTentativa" + i.toString());
+        if(tentativa.value == letras[i]){
+            console.log("Acertou!")
+        }else{
+            console.log("Errou!")
+        }
+        
+    }
+
+});
