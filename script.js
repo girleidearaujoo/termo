@@ -18,3 +18,14 @@ function ver_word(palavra, palavra_matrix) {
         return "Palavra invalida"
     }
 }
+let htmlPalavra = document.getElementById("palavra");
+let wordArray = ["teste"];
+
+function testar(){
+    let letras = wordArray[0].split('');
+    console.log(letras);
+
+    for (const letra of letras) {
+        desenhar(letra, htmlPalavra)
+    }
+}
