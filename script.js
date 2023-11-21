@@ -20,6 +20,7 @@
 // }
 let htmlPalavra = document.getElementById("palavra");
 let btTentativa = document.getElementById("btTentativa");
+let divFogos = document.getElementById("fogos");
 var wordArray = ["teste"];
 var letras = wordArray[0].split('');
 
