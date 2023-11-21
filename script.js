@@ -45,10 +45,10 @@ btTentativa.addEventListener("click", ()=>{
         } else if((tentativa.value).toLowerCase() == letras[i]){
             console.log("Acertou!")
             tentativa.disabled = true;
-            tentativa.style.cursor = none;
-
+            tentativa.id = 'correct'
         }else{
             console.log("Errou!")
+            tentativa.id = 'abscent'
         }
         
     }
