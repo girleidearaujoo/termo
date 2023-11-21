@@ -20,18 +20,25 @@
 // }
 let htmlPalavra = document.getElementById("palavra");
 let btTentativa = document.getElementById("btTentativa");
+let numTentativas = 5;
 var wordArray = ["teste"];
 var letras = wordArray[0].split('');
+let tentativaAtual = 1;
 
-function testar(){
- 
-    console.log(letras);
+function novaTentativa(numTentativa){
 
-        desenhar(letras, htmlPalavra)
+       console.log(letras);
+        desenhar(letras, htmlPalavra, numTentativa)
     
 }
 
 btTentativa.addEventListener("click", ()=>{
+    if(tentativaAtual == 1){
+        novaTentativa(tentativaAtual)
+        tentativaAtual++
+        return
+    }
+
     let tentativa 
     for (let i = 0; i < letras.length; i++) {
         tentativa = document.getElementById("inptTentativa" + i.toString());
@@ -52,6 +59,13 @@ btTentativa.addEventListener("click", ()=>{
         }
         
     }
+    }
+    numTentativas--
+    if(numTentativas > 0){
+        tentativaAtual++
+        novaTentativa(tentativaAtual);
+    }else{
+        console.log("Você perdeu")
     }
 
 });
