@@ -1,0 +1,15 @@
+/* basic styles for black background and crosshair cursor */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body {
+  background: #000;
+  margin: 0;
+}
+h2{
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  display: flex;
+}
+canvas {
+  cursor: crosshair;
+  display: block;
+}
