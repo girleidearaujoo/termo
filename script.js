@@ -33,39 +33,71 @@ function novaTentativa(numTentativa){
 }
 
 btTentativa.addEventListener("click", ()=>{
+    let erros = 0;
     if(tentativaAtual == 1){
         novaTentativa(tentativaAtual)
         tentativaAtual++
         return
     }
 
-    let tentativa 
+     let tentativa 
+    let tentativaNum
     for (let i = 0; i < letras.length; i++) {
-        tentativa = document.getElementById("inptTentativa" + i.toString());
-    if(tentativa.value == ""){
+        tentativaNum = document.getElementById("tentativaNum" + (tentativaAtual-1).toString());
+         tentativa = tentativaNum.children
+        // console.log(teste)
+         //console.log(tentativa[i].className)
+        // tentativa = tentativaNum.querySelector("inptTentativa" + i.toString());
+        if(i>0){
+            if(tentativa[i - 1].dataset.valorDigitado ){
+                tentativa[i - 1].value = tentativa[i-1].dataset.valorDigitado 
+                console.log(tentativa[i-1].dataset.valorDigitado );
+            }
+        }
+
+    if(tentativa[i].value == ""){
+
+        for(let j = i; j >= 0; j--){
+            console.log(j)
+            tentativa[j].value = ""
+            tentativa[j].style = "background-color: #444c56"
+            tentativa[j].className = 'cubo'
+            tentativa[j].disabled = false;
+        }
         alert("Preencha todos os espaços");
-        break;
+        return;
     }else{
-        if(letras.includes(tentativa.value) && !((tentativa.value).toLowerCase() == letras[i])){
+        
+        tentativa[i].dataset.valorDigitado = tentativa[i].value
+        if(letras.includes(tentativa[i].value) && !((tentativa[i].value).toLowerCase() == letras[i])){
             console.log("Letra no lugar errado!")
-            tentativa.class = 'present'
-        } else if((tentativa.value).toLowerCase() == letras[i]){
-            console.log("Acertou!")
-            tentativa.disabled = true;
-            tentativa.class = 'correct'
+            tentativa[i].style = "background-color:  rgb(179, 143, 43)"
+            tentativa[i].class = 'present'
+            erros++
+        } else if((tentativa[i].value).toLowerCase() == letras[i]){
+            tentativa[i].style = "background-color: #34db60"
+            tentativa[i].className = 'correct'
         }else{
             console.log("Errou!")
-            tentativa.class = 'absent'
+            tentativa[i].style = "background-color: rgb(255, 0, 0)"
+            tentativa[i].className = 'absent'
+            erros++
         }
-        
+        tentativa[i].disabled = true;
     }
+    }
+    if(erros == 0){
+        console.log("Você ganhou")
+        btTentativa.disabled = true;
+        return
     }
     numTentativas--
     if(numTentativas > 0){
-        tentativaAtual++
         novaTentativa(tentativaAtual);
+        tentativaAtual++
     }else{
         console.log("Você perdeu")
+        btTentativa.disabled = true;
     }
 
 });
