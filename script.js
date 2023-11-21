@@ -35,17 +35,22 @@ btTentativa.addEventListener("click", ()=>{
     let tentativa 
     for (let i = 0; i < letras.length; i++) {
         tentativa = document.getElementById("inptTentativa" + i.toString());
-        
+    if(tentativa.value == ""){
+        alert("Preencha todos os espaços");
+        break;
+    }else{
         if(letras.includes(tentativa.value) && !((tentativa.value).toLowerCase() == letras[i])){
             console.log("Letra no lugar errado!")
         } else if((tentativa.value).toLowerCase() == letras[i]){
             console.log("Acertou!")
             tentativa.disabled = true;
+            tentativa.style.cursor = none;
 
         }else{
             console.log("Errou!")
         }
         
+    }
     }
 
 });
